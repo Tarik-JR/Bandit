@@ -1,7 +1,11 @@
 INSTRUCTION:
 A daemon is listening on port 30002 and will give you the password for bandit25 if given the password for bandit24 and a secret numeric 4-digit pincode. There is no way to retrieve the pincode except by going through all of the 10000 combinations, called brute-forcing.
 You do not need to create new connections each time
+
+
 SOLUTION:
+
+
 it is a brute-force attack, we have to try all the possible combainations, (all possibilities), we basically have 10*10*10*10 possibilities, that 10.000 possibiliy that we can not really do it manually. I think of writing a script to do so.
 before that we wanna give it a random try to see how it works,
 using netcat:
@@ -18,7 +22,13 @@ then used a for loop in range 0000..9999 and all i did is printed the password a
 then piped the results to nc and then piped the results to grep -v wroong to get any result that doesnt contain the word wrong(eliminate unwanted results)
 
 don't forget to give the execution permissions to ur script before trying to execute it. In case I forgot to mention, I wrote the script in a directory in /var/ because it is not allowed to make anything in the homedirectory.
+
+
+
 KNOWLEDGE:
+
+
+
 a Daemon(not Diementa even thou u miss her), is a program that runs as a background process.rather than being under the direct control of an interactive user
 
 if u give 111 permissions to your file it will not get executed, it needs reading permissions as well. 111 works with binary file. but for our case, it is just a file, the system need to read it first to know which bash to use for executing the file. so you can give it 500 for example and it should work.
